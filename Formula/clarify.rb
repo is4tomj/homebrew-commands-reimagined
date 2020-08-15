@@ -19,6 +19,6 @@ class Clarify < Formula
   end
   
   test do
-    assert_match /\u001b[36;1mI\u001b[0mt is w\u001b[31m0\u001b[0mrking./, shell_output("echo 'It is w0rking' | #{bin}/clarify", 0)
+    assert_match /\\u001b\[36;1mI\\u001b\[0mt is w\\u001b\[31m0\\u001b\[0mrking./, shell_output("echo 'It is w0rking' | #{bin}/clarify", 0)
   end
 end
