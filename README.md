@@ -1,7 +1,7 @@
 Commands Reimagined
 ==========
 
-Homebrew tap for parallelized or otherwise enhanced *nix commands.
+Homebrew tap for new, parallelized, or otherwise enhanced *nix commands.
 
 ## Tools
 
