@@ -1,7 +1,14 @@
+# To audit formula:
+# brew audit --new-formula Formula/clarify.rb clarify
+
+# To run unit test:
+# brew test Formula/clarify.rb
+
 class Clarify < Formula
-  desc "Clarify color codes numbers and uppercase letters"
+  desc "Color code numbers and uppercase letters"
   homepage "https://github.com/is4tomj/clarify"
   version "1.0.0"
+  license "MIT"
   bottle :unneeded
 
   if OS.mac?
@@ -13,12 +20,13 @@ class Clarify < Formula
       sha256 "42a18ece518531538297a5f58f391c0642097afc861181c5c889c94e8b30d53d"
     end
   end
-  
+
   def install
     bin.install "clarify"
   end
-  
+
   test do
-    assert_match /\\u001b\[36;1mI\\u001b\[0mt is w\\u001b\[31m0\\u001b\[0mrking./, shell_output("echo 'It is w0rking' | #{bin}/clarify", 0)
+    assert_match /\e\[36;1mI\e\[0mt is w\e\[31m0\e\[0mrking/,
+                 shell_output("echo -n 'It is w0rking' | #{bin}/clarify")
   end
 end
